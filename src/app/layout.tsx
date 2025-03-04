@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import Menu from "./menu/menu";
+import Search from "./search/search";
+import Nav from "./nav/nav";
+import QueryProvider from "./query/QueryProvider";
+import { QueryClient } from "@tanstack/react-query";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +22,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <QueryProvider>
+          <header className="flex justify-between items-center w-full h-16 border  border-b-slate-950 box-border ">
+            <h1 className="font-bold text-3xl pl-5">
+              <Link href={"/"}>JDK</Link>
+            </h1>
+            <Menu />
+            <Search />
+            <Nav />
+          </header>
+          {children}
+        </QueryProvider>
+      </body>
     </html>
   );
 }
