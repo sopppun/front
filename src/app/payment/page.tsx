@@ -41,7 +41,9 @@ export default function PaymentPage() {
   // URL의 쿼리 파라미터를 가져오기 위한 훅
   const searchParams = useSearchParams();
   const search = searchParams.get("search");
+  const productId = searchParams.get("productId");
 
+  console.log("product", productId);
   // 페이지 이동을 위한 Next.js 라우터
   const router = useRouter();
 
@@ -122,6 +124,25 @@ export default function PaymentPage() {
   });
 
   console.log(dataOfAddress, "asd");
+
+  //
+  const getProductId = async () => {
+    const response = await fetch(
+      `http://localhost:3000/api/articles/${productId}`,
+      {
+        credentials: "include",
+      }
+    );
+    const result = await response.json();
+    return result.data;
+  };
+
+  const { data: article } = useQuery({
+    queryKey: ["article"],
+    queryFn: getProductId,
+  });
+
+  console.log(article, "article");
 
   // 조회된 배송지 목록 중 기본 배송지를 찾음
   const filterDataOfAddress = dataOfAddress?.find((item: any) => {

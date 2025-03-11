@@ -27,7 +27,6 @@ export default function PostUploadPage({ params }: { params: { id: string } }) {
   // params에서 id를 추출
   const { id } = params;
   const router = useRouter();
-
   // useQuery를 사용하여 제품 데이터를 가져오기
   const { data, isLoading, isError } = useQuery<Product>({
     queryKey: ["product", id],
@@ -52,7 +51,7 @@ export default function PostUploadPage({ params }: { params: { id: string } }) {
 
   //결제하기 창 띄우기
   const handlePayment = () => {
-    router.push("/payment");
+    router.push(`/payment/?productId=${id}`);
   };
 
   return (
