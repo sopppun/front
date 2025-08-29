@@ -42,33 +42,16 @@ function SimpleSlider() {
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        <div className="w-full h-[700px] flex items-center">
+        <div className="w-full h-[900px] flex items-center">
           {!isMobile ? ( // 모바일이 아닐 때
             <>
               <div className="w-full h-[700px]">
                 <div className="flex">
-                  <div className="w-[35%] h-[700px] bg-red-950 text-white">
+                  <div className="w-[100%] h-[900px] text-white">
                     <img
                       src="/images/image1.jpg"
                       alt="Image 1"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="w-[30%] h-[700px] text-black flex flex-col items-center justify-center text-center">
-                    <h1 className="text-5xl font-bold">쇼핑몰!</h1>
-                    <p className="text-lg mt-4 mb-6">
-                      쇼핑몰을 소개합니다. 다양한 스타일과 품질 좋은 상품을
-                      만나보세요.
-                    </p>
-                    <button className="bg-black text-white font-semibold py-2 mt-16 px-11 rounded hover:text-black hover:bg-white">
-                      More
-                    </button>
-                  </div>
-                  <div className="w-[35%] h-[700px] bg-blue-950 text-white">
-                    <img
-                      src="/images/image2.jpg"
-                      alt="Image 2"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-fill"
                     />
                   </div>
                 </div>
@@ -76,7 +59,7 @@ function SimpleSlider() {
             </>
           ) : (
             // 모바일일 때
-            <div className="w-full h-[700px] bg-red-950 text-white">
+            <div className="w-full h-[900px] bg-red-950 text-white">
               <img
                 src="/images/image1.jpg"
                 alt="Image 1"
@@ -86,7 +69,7 @@ function SimpleSlider() {
           )}
         </div>
         <div>
-          <div className="w-full h-[700px] bg-red-700 text-white">
+          <div className="w-full h-[900px] bg-red-700 text-white">
             <img
               src="/images/image3.jpg"
               alt="Image 3"
@@ -95,7 +78,7 @@ function SimpleSlider() {
           </div>
         </div>
         <div>
-          <div className="w-full h-[700px] bg-sky-700 text-white">
+          <div className="w-full h-[900px] bg-sky-700 text-white">
             <img
               src="/images/image4.jpg"
               alt="Image 4"
